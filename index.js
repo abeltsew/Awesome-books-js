@@ -1,17 +1,22 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable array-callback-return */
-const books = [
+let idCounter = 1;
+
+let books = [
   {
+    id: 1,
     title: 'lorem ipsum',
     author: 'Testeroo Testyy',
   },
 ];
 
 function addBook(item) {
-  books.push(item);
+  idCounter += 1;
+  books.push({ ...item, id: idCounter });
 }
 
 function removeBook(item) {
-  books.filter((book) => book.title !== item.title);
+  books = books.filter((bookItem) => bookItem.id !== Number(item));
 }
 
 function afterRefresh(callback) {
@@ -29,9 +34,16 @@ function render() {
     book.innerHTML = `
       <h5>${b.title}</h5>
       <small>${b.author}</small>
-      <div><button>Remove</button></div>
+      <div><button book_id="${b.id}" class="remove">Remove</button></div>
       <hr>
     `;
+
+    const remove = book.querySelector('.remove');
+    remove.addEventListener('click', () => {
+      const id = remove.getAttribute('book_id');
+      afterRefresh(() => removeBook(id));
+    });
+
     container.appendChild(book);
   });
 }
@@ -45,6 +57,6 @@ const author = document.getElementById('author');
 const add = document.querySelector('.add');
 
 add.addEventListener('click', (e) => {
-  e.preventDefault;
+  e.preventDefault();
   afterRefresh(() => addBook({ title: title.value, author: author.value }));
 });

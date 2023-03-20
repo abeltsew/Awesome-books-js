@@ -1,17 +1,16 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable array-callback-return */
-let idCounter = 1;
+let idCounter = localStorage.getItem('counter')
+  ? Number(localStorage.getItem('counter'))
+  : localStorage.setItem('counter', 0);
 
-let books = [
-  {
-    id: 1,
-    title: 'lorem ipsum',
-    author: 'Testeroo Testyy',
-  },
-];
+let books = localStorage.getItem('books')
+  ? JSON.parse(localStorage.getItem('books'))
+  : localStorage.setItem('books', JSON.stringify([]));
 
 function addBook(item) {
   idCounter += 1;
+  localStorage.setItem('counter', idCounter);
   books.push({ ...item, id: idCounter });
 }
 
@@ -22,6 +21,7 @@ function removeBook(item) {
 function afterRefresh(callback) {
   callback();
   render();
+  localStorage.setItem('books', JSON.stringify(books));
 }
 
 // render
@@ -59,4 +59,6 @@ const add = document.querySelector('.add');
 add.addEventListener('click', (e) => {
   e.preventDefault();
   afterRefresh(() => addBook({ title: title.value, author: author.value }));
+  title.value = '';
+  author.value = '';
 });

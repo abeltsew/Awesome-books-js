@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable array-callback-return */
 let idCounter = localStorage.getItem('counter')
   ? Number(localStorage.getItem('counter'))
   : localStorage.setItem('counter', 0);
@@ -18,17 +16,11 @@ function removeBook(item) {
   books = books.filter((bookItem) => bookItem.id !== Number(item));
 }
 
-function afterRefresh(callback) {
-  callback();
-  render();
-  localStorage.setItem('books', JSON.stringify(books));
-}
-
 // render
 function render() {
   const container = document.querySelector('#books');
   container.innerHTML = '';
-  books.map((b) => {
+  books.forEach((b) => {
     const book = document.createElement('p');
     book.classList.add('book');
     book.innerHTML = `
@@ -41,11 +33,20 @@ function render() {
     const remove = book.querySelector('.remove');
     remove.addEventListener('click', () => {
       const id = remove.getAttribute('book_id');
-      afterRefresh(() => removeBook(id));
+      // afterRefresh(() => removeBook(id));
+      removeBook(id);
+      render();
+      localStorage.setItem('books', JSON.stringify(books));
     });
 
     container.appendChild(book);
   });
+}
+
+function afterRefresh(callback) {
+  callback();
+  render();
+  localStorage.setItem('books', JSON.stringify(books));
 }
 
 // Initial book list render

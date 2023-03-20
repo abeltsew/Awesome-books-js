@@ -48,12 +48,11 @@ function render() {
   });
 }
 
-// Inital render
-render();
+// Initial book list render
+document.addEventListener('DOMContentLoaded', () => render());
 
 const title = document.getElementById('title');
 const author = document.getElementById('author');
-
 const add = document.querySelector('.add');
 
 add.addEventListener('click', (e) => {

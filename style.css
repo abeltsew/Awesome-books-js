@@ -1,0 +1,23 @@
+main {
+  width: 100%;
+  max-width: 768px;
+  margin: 6rem auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  gap: 0.5rem;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+}
+
+.book small,
+.book button {
+  display: block;
+}

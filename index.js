@@ -22,6 +22,7 @@ function afterRefresh(callback) {
 // render
 function render() {
   const container = document.querySelector('#books');
+  container.innerHTML = '';
   books.map((b) => {
     const book = document.createElement('p');
     book.classList.add('book');
@@ -37,3 +38,13 @@ function render() {
 
 // Inital render
 render();
+
+const title = document.getElementById('title');
+const author = document.getElementById('author');
+
+const add = document.querySelector('.add');
+
+add.addEventListener('click', (e) => {
+  e.preventDefault;
+  afterRefresh(() => addBook({ title: title.value, author: author.value }));
+});

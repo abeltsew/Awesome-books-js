@@ -1,18 +1,26 @@
 {
-  "name": "Friends",
+  "name": "awesome-books",
   "version": "1.0.0",
-  "description": "Awsom Books",
+  "description": "Awesome Books",
   "main": "index.js",
   "repository": "https://github.com/abeltsew/Awesome-books-js.git",
   "author": "abeltsew <35835135+abeltsew@users.noreply.github.com>",
   "license": "MIT",
-  "dependencies": {
-    "eslint": "7.x"
+  "scripts": {
+    "lint": "npm run lint:html; npm run lint:js; npm run lint:css;",
+    "lint:html": "npx hint .",
+    "lint:js": "npx eslint .",
+    "lint:css": "npx stylelint '**/*.{css,scss}'"
   },
   "devDependencies": {
-    "babel-eslint": "10.x",
-    "eslint-config-airbnb-base": "14.x",
-    "eslint-plugin-import": "2.x",
-    "hint": "7.x"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.27.5",
+    "hint": "^7.1.5",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0"
   }
 }

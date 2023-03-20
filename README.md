@@ -25,9 +25,9 @@
 
 # 📖 First Capstone <a name="about-project"></a>
 
-> This site is built as part of an exercise at Microverse. The site is about a fictional event happening in 2023 that brings the cast and crew of the beloved TV show Friends.
+> This site is built as part of an exercise at Microverse. The site is about a Awesom Books
 
-**The Friends project** is a conference happening in 2023.
+**The Awesom Books project** is a conference happening in 2023.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -70,7 +70,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://abeltsew.github.io/friends/)
+- [Live Demo](https://abeltsew.github.io/Awesome-books-js/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,8 +79,6 @@
 ## 💻 Getting Started <a name="getting-started"></a>
 
 > This project is made using Mostly HTML and CSS
-
-- [Video Presentation](https://www.loom.com/share/d77960348a0a4261b4e17103ae82540e)
 
 To get a local copy up and running, follow these steps.
 
@@ -94,7 +92,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/abeltsew/portfolio.git
+  git clone https://github.com/abeltsew/Awesome-books-js.git
 ```
 
 -
@@ -127,11 +125,17 @@ You can deploy this project using github pages
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author**
+👤 **Author 1: Abel Tsegaye**
 
 - GitHub: [@githubhandle](https://github.com/abeltsew)
 - Twitter: [@twitterhandle](https://twitter.com/abeltsew)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/abeltsew)
+
+👤 **Author 2: **
+
+- GitHub: [@githubhandle](https://github.com/mahabubx7)
+- Twitter: [@twitterhandle](https://twitter.com/)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,9 +175,7 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Based on the amazing design developed by [Cindy Shin in Behance](https://www.behance.net/adagio07).
-
-Images and stories gratitude goes to [wikipidia](https://en.wikipedia.org/wiki/Friends).
+Thank you Microverse
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

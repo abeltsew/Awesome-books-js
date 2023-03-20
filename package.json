@@ -1,5 +1,5 @@
 {
-  "name": "Awesome Books",
+  "name": "awesome-books",
   "version": "1.0.0",
   "description": "Awesome Books",
   "main": "index.js",
@@ -11,8 +11,7 @@
     "lint:html": "npx hint .",
     "lint:js": "npx eslint .",
     "lint:css": "npx stylelint '**/*.{css,scss}'"
-  }
-  ,
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",

@@ -1,64 +1,78 @@
-let idCounter = localStorage.getItem('counter')
-  ? Number(localStorage.getItem('counter'))
-  : localStorage.setItem('counter', 0);
-
-let books = localStorage.getItem('books')
-  ? JSON.parse(localStorage.getItem('books'))
-  : localStorage.setItem('books', JSON.stringify([]));
-
-function addBook(item) {
-  idCounter += 1;
-  localStorage.setItem('counter', idCounter);
-  books.push({ ...item, id: idCounter });
+/* eslint-disable max-classes-per-file */
+class Book {
+  constructor(title, author, id = null) {
+    this.title = title;
+    this.author = author;
+    this.id = id;
+  }
 }
 
-function removeBook(item) {
-  books = books.filter((bookItem) => bookItem.id !== Number(item));
-}
+class Books {
+  constructor(selector = '#books') {
+    this.selector = selector;
+    this.books = localStorage.getItem('books')
+      ? JSON.parse(localStorage.getItem('books'))
+      : localStorage.setItem('books', JSON.stringify([]));
+    this.idCounter = localStorage.getItem('counter')
+      ? Number(localStorage.getItem('counter'))
+      : localStorage.setItem('counter', 0);
+    this.renderBooks();
+  }
 
-// render
-function render() {
-  const container = document.querySelector('#books');
-  container.innerHTML = '';
-  books.forEach((b) => {
-    const book = document.createElement('p');
-    book.classList.add('book');
-    book.innerHTML = `
-      <h5>${b.title}</h5>
-      <small>${b.author}</small>
+  get get() {
+    return this.books;
+  }
+
+  refresh() {
+    this.renderBooks();
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  renderBooks() {
+    const container = document.querySelector(this.selector);
+    container.innerHTML = '';
+    this.books.forEach((b) => {
+      const book = document.createElement('p');
+      book.classList.add('book');
+      book.innerHTML = `
+      <div>
+     <strong>"${b.title}"</strong> by ${b.author}</div>
       <div><button book_id="${b.id}" class="remove">Remove</button></div>
-      <hr>
     `;
 
-    const remove = book.querySelector('.remove');
-    remove.addEventListener('click', () => {
-      const id = remove.getAttribute('book_id');
-      // afterRefresh(() => removeBook(id));
-      removeBook(id);
-      render();
-      localStorage.setItem('books', JSON.stringify(books));
+      const remove = book.querySelector('.remove');
+      remove.addEventListener('click', () => {
+        const id = remove.getAttribute('book_id');
+        this.remove(id);
+        this.renderBooks(this.selector);
+        localStorage.setItem('books', JSON.stringify(this.books));
+      });
+
+      container.appendChild(book);
     });
+  }
 
-    container.appendChild(book);
-  });
+  add(item) {
+    this.idCounter += 1;
+    localStorage.setItem('counter', this.idCounter);
+    this.books.push(new Book(item.title, item.author, this.idCounter));
+    this.refresh();
+  }
+
+  remove(item) {
+    this.books = this.books.filter((bookItem) => bookItem.id !== Number(item));
+    this.refresh();
+  }
 }
-
-function afterRefresh(callback) {
-  callback();
-  render();
-  localStorage.setItem('books', JSON.stringify(books));
-}
-
-// Initial book list render
-document.addEventListener('DOMContentLoaded', () => render());
 
 const title = document.getElementById('title');
 const author = document.getElementById('author');
 const add = document.querySelector('.add');
+const books = new Books();
 
 add.addEventListener('click', (e) => {
   e.preventDefault();
-  afterRefresh(() => addBook({ title: title.value, author: author.value }));
+  books.add({ title: title.value, author: author.value });
   title.value = '';
   author.value = '';
 });

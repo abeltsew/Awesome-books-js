@@ -10,14 +10,36 @@ form {
   width: 100%;
   max-width: 200px;
   gap: 0.5rem;
+  margin: auto;
+}
+
+h1,
+h2 {
+  text-align: center;
 }
 
 .book {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.25rem;
+  padding: 0.25rem;
+}
+
+.book:nth-child(2n + 1) {
+  background-color: #999;
+}
+
+#books {
+  border: 2px solid #999;
+  padding: 0.25rem;
+  margin-bottom: 2rem;
 }
 
 .book small,
 .book button {
   display: block;
+}
+
+.remove {
+  margin-left: auto;
 }

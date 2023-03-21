@@ -22,10 +22,15 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin: 0.25rem;
+  padding: 0.25rem;
+}
+
+.book:nth-child(2n + 1) {
+  background-color: #999;
 }
 
 #books {
-  border: 2px solid #555;
+  border: 2px solid #999;
   padding: 0.25rem;
   margin-bottom: 2rem;
 }

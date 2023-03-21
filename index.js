@@ -35,10 +35,9 @@ class Books {
       const book = document.createElement('p');
       book.classList.add('book');
       book.innerHTML = `
-      <h5>${b.title}</h5>
-      <small>${b.author}</small>
+      <div>
+     <strong>"${b.title}"</strong> by ${b.author}</div>
       <div><button book_id="${b.id}" class="remove">Remove</button></div>
-      <hr>
     `;
 
       const remove = book.querySelector('.remove');

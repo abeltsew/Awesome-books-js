@@ -53,7 +53,6 @@ nav .links {
   border-left: none;
 }
 
-
 main {
   width: 100%;
   max-width: 768px;
@@ -100,7 +99,7 @@ h2 {
 
 .remove {
   cursor: pointer;
-  box-shadow: 0.15rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.7);
+  box-shadow: 0.15rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.7);
   transition: all 0.15s ease-in;
   margin-left: auto;
 }
@@ -115,10 +114,9 @@ h2 {
 
 #contact ul {
   padding-left: 0;
-  margin-left: 0;
   width: 100%;
   max-width: 320px;
-  margin: auto;
+  margin: auto auto auto 0;
   text-align: left;
 }
 
@@ -127,11 +125,17 @@ h3 {
   margin: 0.25rem;
 }
 
-footer { margin-top: auto; }
+footer {
+  margin-top: auto;
+}
 
 footer nav {
   width: calc(100% - 1.5rem);
   margin: auto;
   padding: 0.3rem;
   border: 1px solid #777;
+}
+
+.hide {
+  display: none;
 }

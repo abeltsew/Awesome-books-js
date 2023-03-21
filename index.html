@@ -12,9 +12,9 @@
       <nav>
         <span class="logo">awesome books</span>
         <ul class="links">
-          <li><a class="active" href="#list">list</a></li>
-          <li><a href="#addNew">add new</a></li>
-          <li><a href="#contact">contact</a></li>
+          <li><a class="active" id="list-btn" href="#list">list</a></li>
+          <li><a href="#addNew" id="add-btn">add new</a></li>
+          <li><a href="#contact" id="contact-btn">contact</a></li>
         </ul>
       </nav>
       <p id="time"></p>
@@ -24,7 +24,7 @@
         <h1>all awesome books</h1>
         <div id="books"></div>
       </section>
-      <section id="addNew">
+      <section id="addNew" class="hide">
         <h1>Add a new book</h1>
         <form action="#">
           <input type="text" id="title" placeholder="Title" />
@@ -32,7 +32,7 @@
           <button type="submit" class="add">Add</button>
         </form>
       </section>
-      <section id="contact">
+      <section id="contact" class="hide">
         <h1>contact information</h1>
         <p>
           Do you have any questions or you just want to say "Hello"?

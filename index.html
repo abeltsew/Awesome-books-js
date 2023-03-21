@@ -8,16 +8,49 @@
     <title>Awesome Books</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <span class="logo">awesome books</span>
+        <ul class="links">
+          <li><a class="active" href="#list">list</a></li>
+          <li><a href="#addNew">add new</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+      <p id="time"></p>
+    </header>
     <main>
-      <h1>Awesome books</h1>
-      <div id="books"></div>
-      <h2>Add a new book</h2>
-      <form action="#">
-        <input type="text" id="title" placeholder="Title" />
-        <input type="text" id="author" placeholder="Author" />
-        <button type="submit" class="add">Add</button>
-      </form>
+      <section id="list">
+        <h1>all awesome books</h1>
+        <div id="books"></div>
+      </section>
+      <section id="addNew">
+        <h1>Add a new book</h1>
+        <form action="#">
+          <input type="text" id="title" placeholder="Title" />
+          <input type="text" id="author" placeholder="Author" />
+          <button type="submit" class="add">Add</button>
+        </form>
+      </section>
+      <section id="contact">
+        <h1>contact information</h1>
+        <p>
+          Do you have any questions or you just want to say "Hello"?
+          <br />
+          You can reach out to us!
+          <ul>
+            <li>Our e-mail mail@mail.com</li>
+            <li>Our phone number (123) 456 7889 </li>
+            <li>Our address Street-name 22, 84503 City, Country</li>
+          </ul>
+        </p>
+      </section>
     </main>
+    <footer>
+      <nav>
+        <h3>copyright -</h3>
+      </nav>
+    </footer>
     <script src="index.js"></script>
   </body>
 </html>

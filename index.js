@@ -76,3 +76,28 @@ add.addEventListener('click', (e) => {
   title.value = '';
   author.value = '';
 });
+
+const list = document.getElementById('list');
+const addNew = document.getElementById('addNew');
+const contact = document.getElementById('contact');
+
+const listBtn = document.getElementById('list-btn');
+const addBtn = document.getElementById('add-btn');
+const contactBtn = document.getElementById('contact-btn');
+
+const hideSections = () => {
+  const sectionElements = document.querySelectorAll('section');
+
+  sectionElements.forEach((section) => {
+    section.classList.add('hide');
+  });
+};
+const handleLinks = (e, link) => {
+  e.preventDefault();
+  hideSections();
+  link.classList.remove('hide');
+};
+
+listBtn.addEventListener('click', (e) => handleLinks(e, list));
+addBtn.addEventListener('click', (e) => handleLinks(e, addNew));
+contactBtn.addEventListener('click', (e) => handleLinks(e, contact));
